@@ -16,10 +16,12 @@ export default class WhiteBoard extends Component {
             courses: this.courseService.findAllCourses()
         }
     }
-    addCourse = newCourse =>
+    addCourse = newCourse => {
+        this.courseService.createCourse(newCourse)
         this.setState({
-            course: this.state.courses.push(newCourse)
+            course: this.courseService.findAllCourses()
         })
+    }
 
     deleteCourse = courseToDelete => {
         this.setState({

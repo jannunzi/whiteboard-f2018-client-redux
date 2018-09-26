@@ -12,4 +12,6 @@ const courses = [
 export default class CourseService {
     findAllCourses = () =>
         courses
+    createCourse = course =>
+        courses.push(course)
 }
