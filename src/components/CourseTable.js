@@ -1,6 +1,17 @@
 import React from 'react'
+import CourseRow from "./CourseRow";
 
 const CourseTable = ({courses}) =>
-    <h2>Course Table {courses.length}</h2>
+    <table className="table">
+        <tbody>
+        {
+            courses.map((course, index) =>
+                (<CourseRow
+                    key={index}
+                    course={course}/>)
+            )
+        }
+        </tbody>
+    </table>
 
 export default CourseTable
