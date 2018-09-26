@@ -15,6 +15,11 @@ export default class WhiteBoard extends Component {
             courses: this.courseService.findAllCourses()
         }
     }
+    addCourse = newCourse =>
+        this.setState({
+            course: this.state.courses.push(newCourse)
+        })
+
     deleteCourse = courseToDelete => {
         this.setState({
             courses: this.state.courses.filter(
@@ -31,10 +36,10 @@ export default class WhiteBoard extends Component {
                     <div>
                         <Link to="/course/table">Table</Link>
                         <Link to="/course/grid">Grid</Link>
-
                         <Route path="/course/table"
                                render={() =>
                                    <CourseTable
+                                       addCourse={this.addCourse}
                                        deleteCourse={this.deleteCourse}
                                        courses={this.state.courses}/>}/>
                         <Route path="/course/grid"
