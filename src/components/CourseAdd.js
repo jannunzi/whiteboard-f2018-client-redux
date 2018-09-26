@@ -11,7 +11,7 @@ export default class CourseAdd extends Component {
         this.setState({
             title: event.target.value
         })
-    
+
     render() {
         return(
             <div>

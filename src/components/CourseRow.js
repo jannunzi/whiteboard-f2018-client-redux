@@ -1,10 +1,12 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const CourseRow = ({course, deleteCourse}) =>
     <tr>
         <td>{course.title} {course.id}</td>
         <td>
-            <button className="btn btn-primary">Edit</button>
+            <Link
+                className="btn btn-primary" to={`/course/${course.id}/edit`}>Edit</Link>
             <button onClick={() => deleteCourse(course)} className="btn btn-danger">Delete</button>
         </td>
     </tr>
