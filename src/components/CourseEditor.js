@@ -17,8 +17,15 @@ export default class CourseEditor extends Component {
             course => course.id === courseId);
 
         this.state = {
-            course: course
+            course: course,
+            selectedModule: course.modules[0]
         }
+    }
+
+    selectModule = module => {
+        this.setState({
+            selectedModule: module
+        })
     }
 
     render() {
@@ -31,6 +38,8 @@ export default class CourseEditor extends Component {
                 <div className="row">
                     <div className="col-4">
                         <ModuleList2
+                            selectModule={this.selectModule}
+                            selectedModule={this.state.selectedModule}
                             deleteModule={this.props.deleteModule}
                             modules={this.state.course.modules}/>
                     </div>
