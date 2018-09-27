@@ -8,12 +8,16 @@ let courses = [
             },
             {
                 title: 'Week 2'
+            },
+            {
+                title: 'Week 3'
             }
         ]
     },
     {
         id: '234',
-        title: 'CS5610'
+        title: 'CS5610',
+        modules: []
     }
 ]
 
@@ -26,4 +30,12 @@ export default class CourseService {
         courses = courses.filter(
             course => course.id !== courseId
         )
+    deleteModule = moduleToDelete => {
+        courses = courses.map(course => {
+            course.modules = course.modules.filter(
+                module => module !== moduleToDelete
+            )
+            return course;
+        })
+    }
 }

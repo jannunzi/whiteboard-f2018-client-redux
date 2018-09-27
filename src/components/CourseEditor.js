@@ -31,6 +31,7 @@ export default class CourseEditor extends Component {
                 <div className="row">
                     <div className="col-4">
                         <ModuleList2
+                            deleteModule={this.props.deleteModule}
                             modules={this.state.course.modules}/>
                     </div>
                 </div>

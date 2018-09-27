@@ -30,6 +30,13 @@ export default class WhiteBoard extends Component {
         })
     }
 
+    deleteModule = module =>{
+        this.courseService.deleteModule(module)
+        this.setState({
+            courses: this.courseService.findAllCourses()
+        })
+    }
+
     render() {
         return (
             <div>
@@ -51,6 +58,7 @@ export default class WhiteBoard extends Component {
                             render={(props) =>
                                 <CourseEditor
                                     {...props}
+                                    deleteModule={this.deleteModule}
                                     courses={this.state.courses}/>}
                             path="/course/:courseId/edit"/>
                     </div>
