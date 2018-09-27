@@ -21,17 +21,25 @@ export default class CourseEditor extends Component {
 
         const selectedModule = course.modules[0];
         const selectedLesson = selectedModule.lessons[0];
+        const selectedTopic = selectedLesson.topics[0];
 
         this.state = {
             course: course,
             selectedModule: selectedModule,
-            selectedLesson: selectedLesson
+            selectedLesson: selectedLesson,
+            selectedTopic: selectedTopic
         }
     }
 
     selectLesson = lesson =>
         this.setState({
-            selectedLesson: lesson
+            selectedLesson: lesson,
+            selectedTopic: lesson.topics[0]
+        })
+
+    selectTopic = topic =>
+        this.setState({
+            selectedTopic: topic
         })
 
     selectModule = module => {
@@ -65,6 +73,8 @@ export default class CourseEditor extends Component {
                         <br/>
 
                         <TopicPills
+                            selectTopic={this.selectTopic}
+                            selectedTopic={this.state.selectedTopic}
                             topics={this.state.selectedLesson.topics}/>
                     </div>
                 </div>
