@@ -4,13 +4,36 @@ let courses = [
         title: 'CS5200',
         modules: [
             {
-                title: 'Week 1'
+                title: 'Week 1',
+                lessons: [
+                    {
+                        title: 'Lesson 1'
+                    },
+                    {
+                        title: 'Lesson 2'
+                    },
+                    {
+                        title: 'Lesson 3'
+                    }
+                ]
             },
             {
-                title: 'Week 2'
+                title: 'Week 2',
+                lessons: [
+                    {
+                        title: 'Lesson A'
+                    },
+                    {
+                        title: 'Lesson B'
+                    },
+                    {
+                        title: 'Lesson C'
+                    }
+                ]
             },
             {
-                title: 'Week 3'
+                title: 'Week 3',
+                lessons: []
             }
         ]
     },
