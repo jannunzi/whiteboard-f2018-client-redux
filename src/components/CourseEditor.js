@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ModuleList from "./ModuleList";
 import {Route} from 'react-router-dom'
 import LessonTabs from "./LessonTabs";
+import TopicPills from "./TopicPills";
 
 export default class CourseEditor extends Component {
     constructor(props) {
@@ -60,6 +61,11 @@ export default class CourseEditor extends Component {
                             selectLesson={this.selectLesson}
                             selectedLesson={this.state.selectedLesson}
                             lessons={this.state.selectedModule.lessons}/>
+
+                        <br/>
+
+                        <TopicPills
+                            topics={this.state.selectedLesson.topics}/>
                     </div>
                 </div>
             </div>

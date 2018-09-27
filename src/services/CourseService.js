@@ -7,10 +7,29 @@ let courses = [
                 title: 'Week 1',
                 lessons: [
                     {
-                        title: 'Lesson 1'
+                        title: 'Lesson 1',
+                        topics: [
+                            {
+                                title: 'topic 1'
+                            },
+                            {
+                                title: 'topic 2'
+                            }
+                        ]
                     },
                     {
-                        title: 'Lesson 2'
+                        title: 'Lesson 2',
+                        topics: [
+                            {
+                                title: 'topic a'
+                            },
+                            {
+                                title: 'topic b'
+                            },
+                            {
+                                title: 'topic c'
+                            }
+                        ]
                     },
                     {
                         title: 'Lesson 3'
