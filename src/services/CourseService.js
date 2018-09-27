@@ -1,7 +1,15 @@
 let courses = [
     {
         id: '123',
-        title: 'CS5200'
+        title: 'CS5200',
+        modules: [
+            {
+                title: 'Week 1'
+            },
+            {
+                title: 'Week 2'
+            }
+        ]
     },
     {
         id: '234',
