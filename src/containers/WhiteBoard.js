@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import CourseCard from "../components/CourseCard";
-import ModuleList from "../components/ModuleList";
+import ModuleList3 from "../components/ModuleList3";
 import CourseGrid from "../components/CourseGrid";
 import CourseTable from "../components/CourseTable";
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'

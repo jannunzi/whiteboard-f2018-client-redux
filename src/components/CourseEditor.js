@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ModuleList2 from "./ModuleList2";
+import ModuleList from "./ModuleList";
 import {Route} from 'react-router-dom'
 import LessonTabs from "./LessonTabs";
 
@@ -39,7 +39,7 @@ export default class CourseEditor extends Component {
                 </h2>
                 <div className="row">
                     <div className="col-4">
-                        <ModuleList2
+                        <ModuleList
                             selectModule={this.selectModule}
                             selectedModule={this.state.selectedModule}
                             deleteModule={this.props.deleteModule}
