@@ -1,4 +1,4 @@
-const courses = [
+let courses = [
     {
         id: '123',
         title: 'CS5200'
@@ -14,4 +14,8 @@ export default class CourseService {
         courses
     createCourse = course =>
         courses.push(course)
+    deleteCourse = courseId =>
+        courses = courses.filter(
+            course => course.id !== courseId
+        )
 }
