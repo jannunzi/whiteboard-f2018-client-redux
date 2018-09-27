@@ -1,8 +1,9 @@
 import React from 'react'
 
-const LessonTab = ({lesson}) =>
+const LessonTab = ({lesson, selectLesson, selected}) =>
     <li className="nav-item">
-        <a className="nav-link active">
+        <a onClick={() => selectLesson(lesson)}
+           className={selected ? "nav-link active" : "nav-link"}>
             {lesson.title}
         </a>
     </li>

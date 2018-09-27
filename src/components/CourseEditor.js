@@ -18,15 +18,25 @@ export default class CourseEditor extends Component {
         const course = this.props.courses.find(
             course => course.id === courseId);
 
+        const selectedModule = course.modules[0];
+        const selectedLesson = selectedModule.lessons[0];
+
         this.state = {
             course: course,
-            selectedModule: course.modules[0]
+            selectedModule: selectedModule,
+            selectedLesson: selectedLesson
         }
     }
 
+    selectLesson = lesson =>
+        this.setState({
+            selectedLesson: lesson
+        })
+
     selectModule = module => {
         this.setState({
-            selectedModule: module
+            selectedModule: module,
+            selectedLesson: module.lessons[0]
         })
     }
 
@@ -47,6 +57,8 @@ export default class CourseEditor extends Component {
                     </div>
                     <div className="col-8">
                         <LessonTabs
+                            selectLesson={this.selectLesson}
+                            selectedLesson={this.state.selectedLesson}
                             lessons={this.state.selectedModule.lessons}/>
                     </div>
                 </div>
