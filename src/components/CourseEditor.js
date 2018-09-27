@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import ModuleList2 from "./ModuleList2";
 
 export default class CourseEditor extends Component {
     constructor(props) {
@@ -22,10 +23,18 @@ export default class CourseEditor extends Component {
 
     render() {
         return(
-            <h2>Course Editor:
-                {this.state.course.title}
-                ({this.props.match.params.courseId})
-            </h2>
+            <div>
+                <h2>Course Editor:
+                    {this.state.course.title}
+                    ({this.props.match.params.courseId})
+                </h2>
+                <div className="row">
+                    <div className="col-4">
+                        <ModuleList2
+                            modules={this.state.course.modules}/>
+                    </div>
+                </div>
+            </div>
         )
     }
 }
