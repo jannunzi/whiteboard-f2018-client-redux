@@ -3,6 +3,12 @@ import ModuleList from "./ModuleList";
 import {Route} from 'react-router-dom'
 import LessonTabs from "./LessonTabs";
 import TopicPills from "./TopicPills";
+import widgets from "../reducers/widgets"
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import WidgetListContainer from '../containers/WidgetListContainer'
+
+const store = createStore(widgets)
 
 export default class CourseEditor extends Component {
     constructor(props) {
@@ -76,6 +82,13 @@ export default class CourseEditor extends Component {
                             selectTopic={this.selectTopic}
                             selectedTopic={this.state.selectedTopic}
                             topics={this.state.selectedLesson.topics}/>
+
+                        <br/>
+
+                        <Provider store={store}>
+                            <WidgetListContainer/>
+                        </Provider>
+
                     </div>
                 </div>
             </div>
