@@ -15,15 +15,24 @@ let courses = [
                                 widgets: [
                                     {
                                         id: '123',
-                                        title: 'widget 1'
+                                        title: 'widget 1',
+                                        type: 'HEADING',
+                                        size: 1,
+                                        text: 'Heading 1'
                                     },
                                     {
                                         id: '234',
-                                        title: 'widget 2'
+                                        title: 'widget 2',
+                                        type: 'HEADING',
+                                        size: 2,
+                                        text: 'Heading 2'
                                     },
                                     {
                                         id: '345',
-                                        title: 'widget 3'
+                                        title: 'widget 3',
+                                        type: 'HEADING',
+                                        size: 3,
+                                        text: 'Heading 3'
                                     }
                                 ]
                             },

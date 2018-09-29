@@ -1,4 +1,5 @@
 import React from 'react'
+import HeadingWidget from "./HeadingWidget";
 
 class WidgetList extends React.Component {
     constructor(props) {
@@ -16,12 +17,12 @@ class WidgetList extends React.Component {
                     this.props.widgets.map((widget, index) =>
                         <li key={index}
                             className="list-group-item">
-                            {widget.title}
                             <button
                                 onClick={() => this.props.deleteWidget(widget)}
                                 className="btn btn-danger float-right">
                                 Delete
                             </button>
+                            <HeadingWidget widget={widget}/>
                         </li>
                     )
                 }
