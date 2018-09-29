@@ -7,7 +7,7 @@ class WidgetList extends React.Component {
     }
 
     componentDidUpdate() {
-        this.props.init(this.props.widgetsInit)
+    //     this.props.init(this.props.widgetsInit)
     }
     render() {
         return(
@@ -17,6 +17,11 @@ class WidgetList extends React.Component {
                         <li key={index}
                             className="list-group-item">
                             {widget.title}
+                            <button
+                                onClick={() => this.props.deleteWidget(widget)}
+                                className="btn btn-danger float-right">
+                                Delete
+                            </button>
                         </li>
                     )
                 }
