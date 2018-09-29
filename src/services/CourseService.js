@@ -10,20 +10,25 @@ let courses = [
                         title: 'Lesson 1',
                         topics: [
                             {
+                                id: '123',
                                 title: 'topic 1',
                                 widgets: [
                                     {
+                                        id: '123',
                                         title: 'widget 1'
                                     },
                                     {
+                                        id: '234',
                                         title: 'widget 2'
                                     },
                                     {
+                                        id: '345',
                                         title: 'widget 3'
                                     }
                                 ]
                             },
                             {
+                                id: '234',
                                 title: 'topic 2',
                                 widgets: [
                                     {
@@ -62,13 +67,16 @@ let courses = [
                 title: 'Week 2',
                 lessons: [
                     {
-                        title: 'Lesson A'
+                        title: 'Lesson A',
+                        topics: []
                     },
                     {
-                        title: 'Lesson B'
+                        title: 'Lesson B',
+                        topics: []
                     },
                     {
-                        title: 'Lesson C'
+                        title: 'Lesson C',
+                        topics: []
                     }
                 ]
             },
@@ -86,6 +94,20 @@ let courses = [
 ]
 
 export default class CourseService {
+    findWidgetsForTopic = forTopic => {
+        for(let c in courses) {
+            for(let m in courses[c].modules) {
+                for(let l in courses[c].modules[m].lessons) {
+                    for(let t in courses[c].modules[m].lessons[l].topics) {
+                        if(courses[c].modules[m].lessons[l].topics[t].id === forTopic.id) {
+                            return courses[c].modules[m].lessons[l].topics[t].widgets
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     findAllCourses = () =>
         courses
     createCourse = course =>
@@ -101,5 +123,19 @@ export default class CourseService {
             )
             return course;
         })
+    }
+    deleteWidget = (forTopic, forWidget) => {
+        for(let c in courses) {
+            for(let m in courses[c].modules) {
+                for(let l in courses[c].modules[m].lessons) {
+                    for(let t in courses[c].modules[m].lessons[l].topics) {
+                        if(courses[c].modules[m].lessons[l].topics[t].id === forTopic.id) {
+                            const widgetIndex = courses[c].modules[m].lessons[l].topics[t].widgets.findIndex(widget => widget.id === forWidget.id)
+                            courses[c].modules[m].lessons[l].topics[t].widgets.splice(widgetIndex, 1)
+                        }
+                    }
+                }
+            }
+        }
     }
 }

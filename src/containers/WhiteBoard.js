@@ -58,6 +58,7 @@ export default class WhiteBoard extends Component {
                             render={(props) =>
                                 <CourseEditor
                                     {...props}
+                                    courseService={this.courseService}
                                     deleteModule={this.deleteModule}
                                     courses={this.state.courses}/>}
                             path="/course/:courseId/edit"/>

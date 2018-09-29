@@ -7,9 +7,11 @@ const stateToPropertyMapper = state => ({
 })
 
 const dispatcherToPropertyMapper = dispatch => ({
-    init: (widgets) => dispatch({
+    init: (widgets, topic, courseService) => dispatch({
         type: 'INIT',
-        widgets: widgets
+        widgets: widgets,
+        topic: topic,
+        courseService: courseService
     }),
     deleteWidget: (widget) => dispatch({
         type: 'DELETE_WIDGET',
