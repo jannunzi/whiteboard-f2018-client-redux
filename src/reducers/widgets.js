@@ -1,16 +1,11 @@
-const widgets = () => {
-    return {
-        widgets: [
-            {
-                title: 'widget 1'
-            },
-            {
-                title: 'widget 2'
-            },
-            {
-                title: 'widget 3'
+const widgets = (state, action) => {
+    switch (action.type) {
+        case "INIT":
+            return {
+                widgets:action.widgets
             }
-        ]
+        default:
+            return state
     }
 }
 

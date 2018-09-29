@@ -6,7 +6,14 @@ const stateToPropertyMapper = state => ({
     widgets: state.widgets
 })
 
+const dispatcherToPropertyMapper = dispatch => ({
+    init: (widgets) => dispatch({
+        type: 'INIT',
+        widgets: widgets
+    })
+})
+
 const WidgetListContainer = connect
-(stateToPropertyMapper)(WidgetList)
+(stateToPropertyMapper, dispatcherToPropertyMapper)(WidgetList)
 
 export default WidgetListContainer
