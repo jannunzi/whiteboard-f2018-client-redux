@@ -14,6 +14,12 @@ let courses = [
                                 title: 'topic 1',
                                 widgets: [
                                     {
+                                        id: '456',
+                                        title: 'list 1',
+                                        type: 'LIST',
+                                        options: 'option 1,option 2,option 3'
+                                    },
+                                    {
                                         id: '123',
                                         title: 'widget 1',
                                         type: 'HEADING',

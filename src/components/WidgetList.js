@@ -1,5 +1,6 @@
 import React from 'react'
 import HeadingWidget from "./HeadingWidget";
+import ListWidget from "./ListWidget";
 
 class WidgetList extends React.Component {
     constructor(props) {
@@ -22,7 +23,8 @@ class WidgetList extends React.Component {
                                 className="btn btn-danger float-right">
                                 Delete
                             </button>
-                            <HeadingWidget widget={widget}/>
+                            {widget.type === "HEADING" && <HeadingWidget widget={widget}/>}
+                            {widget.type === "LIST" && <ListWidget widget={widget}/>}
                         </li>
                     )
                 }
