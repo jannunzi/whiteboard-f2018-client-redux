@@ -1,4 +1,4 @@
-const widgets = (state, action) => {
+const widgets = (state = {widgets:[]}, action) => {
     switch (action.type) {
         case "INIT":
             return {
