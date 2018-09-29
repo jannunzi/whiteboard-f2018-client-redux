@@ -87,7 +87,6 @@ export default class CourseEditor extends Component {
 
                         <Provider store={store}>
                             <WidgetListContainer
-                                courseService={this.props.courseService}
                                 topic={this.state.selectedTopic}
                                 widgetsInit={this.state.selectedTopic.widgets}/>
                         </Provider>

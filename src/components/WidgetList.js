@@ -3,11 +3,11 @@ import React from 'react'
 class WidgetList extends React.Component {
     constructor(props) {
         super(props);
-        props.init(props.widgetsInit, props.topic, props.courseService)
+        props.init(props.widgetsInit, props.topic)
     }
 
     componentDidUpdate() {
-        this.props.init(this.props.widgetsInit, this.props.topic, this.props.courseService)
+        this.props.init(this.props.widgetsInit, this.props.topic)
     }
     render() {
         return(

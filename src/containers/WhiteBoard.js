@@ -4,36 +4,35 @@ import ModuleList3 from "../components/ModuleList3";
 import CourseGrid from "../components/CourseGrid";
 import CourseTable from "../components/CourseTable";
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
-import CourseService from "../services/CourseService";
+import CourseServiceSingleton from "../services/CourseServiceSingleton";
 import CourseEditor from "../components/CourseEditor";
 
 export default class WhiteBoard extends Component {
 
     constructor(props) {
         super(props);
-        this.courseService = new CourseService();
         this.state = {
-            courses: this.courseService.findAllCourses()
+            courses: CourseServiceSingleton.findAllCourses()
         }
     }
     addCourse = newCourse => {
-        this.courseService.createCourse(newCourse)
+        CourseServiceSingleton.createCourse(newCourse)
         this.setState({
-            courses: this.courseService.findAllCourses()
+            courses: CourseServiceSingleton.findAllCourses()
         })
     }
 
     deleteCourse = courseToDelete => {
-        this.courseService.deleteCourse(courseToDelete.id)
+        CourseServiceSingleton.deleteCourse(courseToDelete.id)
         this.setState({
-            courses: this.courseService.findAllCourses()
+            courses: CourseServiceSingleton.findAllCourses()
         })
     }
 
     deleteModule = module =>{
-        this.courseService.deleteModule(module)
+        CourseServiceSingleton.deleteModule(module)
         this.setState({
-            courses: this.courseService.findAllCourses()
+            courses: CourseServiceSingleton.findAllCourses()
         })
     }
 
@@ -58,7 +57,6 @@ export default class WhiteBoard extends Component {
                             render={(props) =>
                                 <CourseEditor
                                     {...props}
-                                    courseService={this.courseService}
                                     deleteModule={this.deleteModule}
                                     courses={this.state.courses}/>}
                             path="/course/:courseId/edit"/>

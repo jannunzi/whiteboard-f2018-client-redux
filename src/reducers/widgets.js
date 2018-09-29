@@ -1,18 +1,18 @@
+import CourseServiceSingleton from '../services/CourseServiceSingleton'
+
 const widgets = (state = {widgets:[]}, action) => {
     switch (action.type) {
         case "INIT":
             return {
-                widgets: action.courseService.findWidgetsForTopic(action.topic),
-                selectedTopic: action.topic,
-                courseService: action.courseService
+                widgets: CourseServiceSingleton.findWidgetsForTopic(action.topic),
+                selectedTopic: action.topic
             }
         case "DELETE_WIDGET":
-            state.courseService.deleteWidget(state.selectedTopic, action.widget)
-            const newWidgets = state.courseService.findWidgetsForTopic(state.selectedTopic)
+            CourseServiceSingleton.deleteWidget(state.selectedTopic, action.widget)
+            const newWidgets = CourseServiceSingleton.findWidgetsForTopic(state.selectedTopic)
             return {
                 widgets: newWidgets.slice(0),
-                selectedTopic: state.selectedTopic,
-                courseService: state.courseService
+                selectedTopic: state.selectedTopic
             }
         default:
             return state
