@@ -17,7 +17,7 @@ let courses = [
                                         id: '456',
                                         title: 'list 1',
                                         type: 'LIST',
-                                        options: 'option 1,option 2,option 3'
+                                        options: 'option 1\noption 2\noption 3'
                                     },
                                     {
                                         id: '123',
@@ -109,6 +109,20 @@ let courses = [
 ]
 
 export default class CourseServiceSingleton {
+    static updateWidget = (forTopic, forWidget) => {
+        for(let c in courses) {
+            for(let m in courses[c].modules) {
+                for(let l in courses[c].modules[m].lessons) {
+                    for(let t in courses[c].modules[m].lessons[l].topics) {
+                        if(courses[c].modules[m].lessons[l].topics[t].id === forTopic.id) {
+                            const widgetIndex = courses[c].modules[m].lessons[l].topics[t].widgets.findIndex(widget => widget.id === forWidget.id)
+                            courses[c].modules[m].lessons[l].topics[t].widgets[widgetIndex] = forWidget;
+                        }
+                    }
+                }
+            }
+        }
+    }
     static findWidgetsForTopic = forTopic => {
         for(let c in courses) {
             for(let m in courses[c].modules) {

@@ -14,6 +14,13 @@ const widgets = (state = {widgets:[]}, action) => {
                 widgets: newWidgets.slice(0),
                 selectedTopic: state.selectedTopic
             }
+        case "UPDATE_WIDGET":
+            CourseServiceSingleton.updateWidget(state.selectedTopic, action.widget)
+            return {
+                widgets: CourseServiceSingleton.findWidgetsForTopic(state.selectedTopic).slice(0),
+                selectedTopic: state.selectedTopic
+            }
+
         default:
             return state
     }

@@ -23,8 +23,10 @@ class WidgetList extends React.Component {
                                 className="btn btn-danger float-right">
                                 Delete
                             </button>
-                            {widget.type === "HEADING" && <HeadingWidget widget={widget}/>}
-                            {widget.type === "LIST" && <ListWidget widget={widget}/>}
+                            {widget.type === "HEADING" && <HeadingWidget updateWidget={this.props.updateWidget}
+                                                                         widget={widget}/>}
+                            {widget.type === "LIST" && <ListWidget updateWidget={this.props.updateWidget}
+                                                                   widget={widget}/>}
                         </li>
                     )
                 }
