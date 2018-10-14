@@ -1,5 +1,9 @@
 let courses = [
     {
+        id: '321',
+        title: 'CS1800'
+    },
+    {
         id: '123',
         title: 'CS5200',
         modules: [
