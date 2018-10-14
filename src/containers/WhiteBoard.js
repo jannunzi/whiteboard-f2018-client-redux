@@ -13,28 +13,37 @@ export default class WhiteBoard extends Component {
         super(props);
         this.courseService = new CourseService();
         this.state = {
-            courses: this.courseService.findAllCourses()
+            courses: []
         }
+    }
+    componentDidMount() {
+        this.courseService.findAllCourses()
+          .then(courses => this.setState({
+            courses: courses
+          }))
     }
     addCourse = newCourse => {
         this.courseService.createCourse(newCourse)
-        this.setState({
-            courses: this.courseService.findAllCourses()
-        })
+        this.courseService.findAllCourses()
+          .then(courses => this.setState({
+            courses: courses
+        }))
     }
 
     deleteCourse = courseToDelete => {
         this.courseService.deleteCourse(courseToDelete.id)
-        this.setState({
-            courses: this.courseService.findAllCourses()
-        })
+        this.courseService.findAllCourses()
+          .then(courses => this.setState({
+            courses: courses
+        }))
     }
 
     deleteModule = module =>{
         this.courseService.deleteModule(module)
-        this.setState({
-            courses: this.courseService.findAllCourses()
-        })
+        this.courseService.findAllCourses()
+          .then(courses => this.setState({
+            courses: courses
+        }))
     }
 
     render() {
