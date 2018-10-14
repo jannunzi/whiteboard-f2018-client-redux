@@ -24,7 +24,6 @@ export default class WhiteBoard extends Component {
     }
     addCourse = newCourse => {
         this.courseService.createCourse(newCourse)
-        this.courseService.findAllCourses()
           .then(courses => this.setState({
             courses: courses
         }))

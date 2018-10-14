@@ -80,7 +80,13 @@ export default class CourseService {
         fetch("http://localhost:8080/api/course")
             .then(response => response.json())
     createCourse = course =>
-        courses.push(course)
+        fetch("http://localhost:8080/api/course", {
+            method: 'post',
+            body: JSON.stringify(course),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(response => response.json())
     deleteCourse = courseId =>
         courses = courses.filter(
             course => course.id !== courseId

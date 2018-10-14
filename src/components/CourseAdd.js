@@ -20,7 +20,7 @@ export default class CourseAdd extends Component {
                     className="form-control"/>
                 <button
                     onClick={() => this.props.addCourse({
-                        id: (new Date()).getTime() + '',
+                        id: -1,
                         title: this.state.title
                     })}
                     className="btn btn-success">Add</button>
