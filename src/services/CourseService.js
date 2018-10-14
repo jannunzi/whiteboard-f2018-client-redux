@@ -77,7 +77,8 @@ let courses = [
 
 export default class CourseService {
     findAllCourses = () =>
-        courses
+        fetch("http://localhost:8080/api/course")
+            .then(response => response.json())
     createCourse = course =>
         courses.push(course)
     deleteCourse = courseId =>
