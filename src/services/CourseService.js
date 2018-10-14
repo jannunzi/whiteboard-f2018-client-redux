@@ -10,10 +10,18 @@ let courses = [
                         title: 'Lesson 1',
                         topics: [
                             {
-                                title: 'topic 1'
+                                title: 'topic 1',
+                                widgets: [
+                                    {title: 'AAA'},
+                                    {title: 'BBB'}
+                                ]
                             },
                             {
-                                title: 'topic 2'
+                                title: 'topic 2',
+                                widgets: [
+                                    {title: 'CCC'},
+                                    {title: 'DDD'}
+                                ]
                             }
                         ]
                     },
