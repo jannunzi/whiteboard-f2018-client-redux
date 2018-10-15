@@ -31,7 +31,6 @@ export default class WhiteBoard extends Component {
 
     deleteCourse = courseToDelete => {
         this.courseService.deleteCourse(courseToDelete.id)
-        this.courseService.findAllCourses()
           .then(courses => this.setState({
             courses: courses
         }))

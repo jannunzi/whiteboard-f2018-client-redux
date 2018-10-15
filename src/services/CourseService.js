@@ -88,9 +88,12 @@ export default class CourseService {
             }
         }).then(response => response.json())
     deleteCourse = courseId =>
-        courses = courses.filter(
-            course => course.id !== courseId
-        )
+      fetch("http://localhost:8080/api/course/" + courseId, {
+        method: 'delete',
+        headers: {
+          'content-type': 'application/json'
+        }
+      }).then(response => response.json())
     deleteModule = moduleToDelete => {
         courses = courses.map(course => {
             course.modules = course.modules.filter(
