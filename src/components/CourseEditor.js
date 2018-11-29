@@ -3,6 +3,7 @@ import ModuleList from "./ModuleList";
 import {Route} from 'react-router-dom'
 import LessonTabs from "./LessonTabs";
 import TopicPills from "./TopicPills";
+import CourseService from "../services/CourseService";
 import WidgetListComponent from "./WidgetListComponent";
 
 import widgets from '../reducers/widgets'
@@ -15,28 +16,35 @@ const store = createStore(widgets)
 export default class CourseEditor extends Component {
     constructor(props) {
         super(props);
-
-        // retrieve courseId from the URL path parameter 'courseId'
-        // the props.match.params is part of the Route library which
-        // parses the URL path and names the parameters and creates
-        // the params map
-        const courseId = this.props.match.params.courseId;
-
-        // use courseId to find the course object from the
-        // courses array passed in as a property
-        const course = this.props.courses.find(
-            course => course.id === courseId);
-
-        const selectedModule = course.modules[0];
-        const selectedLesson = selectedModule.lessons[0];
-        const selectedTopic = selectedLesson.topics[0];
+        this.courseService = new CourseService();
 
         this.state = {
+            courseId: parseInt(this.props.match.params.courseId),
+            courses: [],
+            course: {
+                modules: []
+            },
+            selectedModule: {},
+            selectedLesson: {},
+            selectedTopic: {}
+        }
+    }
+
+    componentDidMount() {
+      this.courseService.findCourseById(this.state.courseId)
+        .then(course => {
+          console.log(course);
+          const selectedModule = course.modules ? course.modules[0] : {};
+          console.log(selectedModule);
+          const selectedLesson = selectedModule.lessons ? selectedModule.lessons[0] : {};
+          const selectedTopic = selectedLesson.topics ? selectedLesson.topics[0] : {};
+          this.setState({
             course: course,
             selectedModule: selectedModule,
             selectedLesson: selectedLesson,
             selectedTopic: selectedTopic
-        }
+          });
+        })
     }
 
     selectLesson = lesson =>

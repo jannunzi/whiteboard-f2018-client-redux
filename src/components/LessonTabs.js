@@ -1,7 +1,7 @@
 import React from 'react'
 import LessonTab from "./LessonTab";
 
-const LessonTabs = ({lessons, selectLesson, selectedLesson}) =>
+const LessonTabs = ({lessons = [], selectLesson, selectedLesson}) =>
     <ul className="nav nav-tabs">
         {
             lessons.map((lesson, index) =>

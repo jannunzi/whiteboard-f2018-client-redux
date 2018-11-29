@@ -76,6 +76,9 @@ let courses = [
 ]
 
 export default class CourseService {
+    findCourseById = courseId =>
+        fetch("http://localhost:8080/api/course/" + courseId)
+            .then(response => response.json())
     findAllCourses = () =>
         fetch("http://localhost:8080/api/course")
             .then(response => response.json())
